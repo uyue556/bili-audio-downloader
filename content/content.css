@@ -1,0 +1,7 @@
+/*
+ * 样式全部封装在 content.js 的 Shadow DOM 里，
+ * 这里只保留一个占位文件，供 manifest 的 css 字段引用（便于日后加全局覆盖规则）。
+ */
+#bili-audio-downloader-root {
+  all: initial;
+}

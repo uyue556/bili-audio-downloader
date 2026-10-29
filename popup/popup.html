@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>B站音频下载器</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="head">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">♪</span>
+        <div>
+          <h1>B站音频下载器</h1>
+          <p class="sub" id="account">检查登录状态…</p>
+        </div>
+      </div>
+      <button id="btnFolder" class="icon-btn" title="打开下载目录">📁</button>
+    </header>
+
+    <!-- 手动输入 -->
+    <section class="card" id="manualCard">
+      <label class="field">
+        <span class="field-label">视频地址 / BV 号 / ep 号</span>
+        <div class="row">
+          <input id="inputUrl" type="text" placeholder="BV1xx411c7mD 或 https://www.bilibili.com/video/BV..." />
+          <button id="btnProbe" class="primary">解析</button>
+        </div>
+      </label>
+    </section>
+
+    <!-- 解析结果 -->
+    <section class="card hidden" id="infoCard">
+      <div class="video">
+        <img id="cover" class="cover" alt="" />
+        <div class="video-meta">
+          <p class="title" id="vTitle"></p>
+          <p class="owner" id="vOwner"></p>
+          <p class="duration" id="vDuration"></p>
+        </div>
+      </div>
+
+      <label class="field hidden" id="pageField">
+        <span class="field-label">分P</span>
+        <select id="selPage"></select>
+      </label>
+
+      <label class="field">
+        <span class="field-label">音质</span>
+        <select id="selQuality"></select>
+      </label>
+
+      <div class="actions">
+        <button id="btnStart" class="primary wide">下载 MP3</button>
+      </div>
+    </section>
+
+    <!-- 进度 -->
+    <section class="card hidden" id="progressCard">
+      <div class="progress-head">
+        <span id="pPhase">准备中</span>
+        <span id="pPercent">0%</span>
+      </div>
+      <div class="bar"><div class="bar-fill" id="pBar"></div></div>
+      <p class="progress-msg" id="pMsg"></p>
+    </section>
+
+    <!-- 提示 / 错误 -->
+    <div class="alert hidden" id="alert"></div>
+
+    <!-- 历史 -->
+    <section class="card">
+      <div class="card-head">
+        <h2>最近下载</h2>
+        <button id="btnClearHistory" class="link-btn">清空</button>
+      </div>
+      <ul class="history" id="historyList">
+        <li class="empty">还没有下载记录</li>
+      </ul>
+    </section>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>B站音频下载器 · 转码</title>
+  </head>
+  <body>
+    <!--
+      离屏文档（Offscreen Document）。
+      MV3 的 Service Worker 里没有 AudioContext / decodeAudioData，
+      也没有 URL.createObjectURL，所以把「下载音频流 → 解码 → 编码 MP3」放在这里做。
+    -->
+    <script src="../lib/lame.min.js"></script>
+    <script type="module" src="offscreen.js"></script>
+  </body>
+</html>
